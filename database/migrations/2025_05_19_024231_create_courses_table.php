@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->integer('semester');
+            $table->string('tahun_ajaran');
             $table->timestamps();
         });
+        
     }
 
     /**

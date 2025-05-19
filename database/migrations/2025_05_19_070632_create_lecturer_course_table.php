@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evaluation_answers', function (Blueprint $table) {
+        Schema::create('lecturer_course', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('evaluation_id')->constrained()->onDelete('cascade');
-            $table->foreignId('questionnaire_id')->constrained()->onDelete('cascade');
-            $table->integer('score')->nullable(); // 1-5 jika type == scale
-            $table->text('note')->nullable();
+            $table->foreignId('lecturer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+        
+            $table->unique(['lecturer_id', 'course_id']);
         });
         
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evaluation_answers');
+        Schema::dropIfExists('lecturer_course');
     }
 };

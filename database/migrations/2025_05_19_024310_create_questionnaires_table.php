@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->id();
+            $table->text('text');
+            $table->enum('type', ['scale', 'text']);
+            $table->integer('weight')->default(1);
             $table->timestamps();
         });
+        
     }
 
     /**

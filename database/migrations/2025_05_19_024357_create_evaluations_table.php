@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
+            $table->boolean('is_anonymous')->default(false);
             $table->timestamps();
+        
+            $table->unique(['user_id', 'course_id']); // Satu mahasiswa, satu evaluasi per mata kuliah
         });
+        
     }
 
     /**
