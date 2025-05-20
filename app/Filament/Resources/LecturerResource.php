@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class LecturerResource extends Resource
 {
     protected static ?string $model = Lecturer::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
@@ -33,7 +32,9 @@ class LecturerResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('nidn')->sortable(),
+                Tables\Columns\TextColumn::make('email')->searchable(),
             ])
             ->filters([
                 //
