@@ -16,22 +16,33 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CourseResource extends Resource
 {
     protected static ?string $model = Course::class;
-
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
+    protected static ?string $navigationLabel = 'Mata Kuliah';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                //
-            ]);
+        
+        return $form->schema([
+            Forms\Components\TextInput::make('name')->required()->maxLength(100),
+            Forms\Components\TextInput::make('code')->required()->unique()->maxLength(20),
+            Forms\Components\Select::make('semester')->options([
+                1 => '1', 2 => '2', 3 => '3', 4 => '4',
+                5 => '5', 6 => '6', 7 => '7', 8 => '8',
+            ])->required(),
+            Forms\Components\TextInput::make('tahun_ajaran')
+                ->required()
+                ->default('2024/2025'),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')->searchable(),
+                Tables\Columns\TextColumn::make('code')->sortable(),
+                Tables\Columns\TextColumn::make('semester')->sortable(),
+                Tables\Columns\TextColumn::make('tahun_ajaran'),
             ])
             ->filters([
                 //
