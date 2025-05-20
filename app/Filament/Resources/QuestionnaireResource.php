@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class QuestionnaireResource extends Resource
 {
     protected static ?string $model = Questionnaire::class;
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-list';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
     protected static ?string $navigationLabel = 'Kuisioner';
 
     public static function form(Form $form): Form
