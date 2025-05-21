@@ -32,6 +32,11 @@ class CourseResource extends Resource
             Forms\Components\TextInput::make('tahun_ajaran')
                 ->required()
                 ->default('2024/2025'),
+            Forms\Components\Select::make('lecturers')
+            ->label('Dosen Pengampu')
+            ->relationship('lecturers', 'name')
+            ->multiple()
+            ->preload(),
         ]);
     }
 

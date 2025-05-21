@@ -13,6 +13,8 @@ class Lecturer extends Model
     public function courses()
     {
         return $this->belongsToMany(Course::class, 'lecturer_course');
+        
     }
+      
 }
 
