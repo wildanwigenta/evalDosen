@@ -14,6 +14,7 @@ class Course extends Model
     {
         return $this->belongsToMany(Lecturer::class, 'lecturer_course');
     }
+    
 
     public function evaluations()
     {
