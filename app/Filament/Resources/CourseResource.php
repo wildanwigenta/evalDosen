@@ -36,6 +36,11 @@ class CourseResource extends Resource
             ->relationship('lecturers', 'name')
             ->multiple()
             ->preload(),
+            Forms\Components\Select::make('students')
+            ->label('Mahasiswa')
+            ->relationship('students', 'name')
+            ->multiple()
+            ->preload(),
         ]);
     }
 
