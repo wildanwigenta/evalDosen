@@ -23,8 +23,13 @@ class LecturerResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')->required()->maxLength(100),
-                Forms\Components\TextInput::make('nidn')->required()->unique()->maxLength(20),
+                Forms\Components\TextInput::make('nidn')->required()->unique(ignoreRecord: true)->maxLength(20),
                 Forms\Components\TextInput::make('email')->email()->required()->unique(),
+                Forms\Components\Select::make('lecturers')
+                ->relationship('lecturers', 'name')
+                ->multiple()
+                ->label('Dosen Pengampu')
+
             ]);
     }
 

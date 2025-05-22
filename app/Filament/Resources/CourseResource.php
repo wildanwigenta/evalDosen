@@ -23,7 +23,7 @@ class CourseResource extends Resource
         
         return $form->schema([
             Forms\Components\TextInput::make('name')->required()->maxLength(100),
-            Forms\Components\TextInput::make('code')->required()->unique()->maxLength(20),
+            Forms\Components\TextInput::make('code')->required()->unique(ignoreRecord: true)->maxLength(20),
             Forms\Components\Select::make('semester')->options([
                 1 => '1', 2 => '2', 3 => '3', 4 => '4',
                 5 => '5', 6 => '6', 7 => '7', 8 => '8',
@@ -31,6 +31,11 @@ class CourseResource extends Resource
             Forms\Components\TextInput::make('tahun_ajaran')
                 ->required()
                 ->default('2024/2025'),
+            Forms\Components\Select::make('lecturers')
+            ->label('Dosen Pengampu')
+            ->relationship('lecturers', 'name')
+            ->multiple()
+            ->preload(),
         ]);
     }
 
