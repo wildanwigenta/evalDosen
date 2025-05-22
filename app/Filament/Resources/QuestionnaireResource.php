@@ -47,7 +47,7 @@ class QuestionnaireResource extends Resource
                 Tables\Columns\TextColumn::make('weight')->label('Bobot'),
             ])
             ->filters([
-                //
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
