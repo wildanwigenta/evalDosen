@@ -29,6 +29,7 @@ class LecturerResource extends Resource
                 ->relationship('lecturers', 'name')
                 ->multiple()
                 ->label('Dosen Pengampu')
+                ->preload()
 
             ]);
     }
