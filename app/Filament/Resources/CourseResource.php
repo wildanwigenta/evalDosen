@@ -52,6 +52,7 @@ class CourseResource extends Resource
                 Tables\Columns\TextColumn::make('code')->sortable(),
                 Tables\Columns\TextColumn::make('semester')->sortable(),
                 Tables\Columns\TextColumn::make('tahun_ajaran'),
+                Tables\Columns\TextColumn::make('lecturers.name')->label('Dosen Pengampu'),
             ])
             ->filters([
                 //
