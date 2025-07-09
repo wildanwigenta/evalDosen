@@ -32,7 +32,7 @@ class LecturerResource extends Resource
                 ->preload()
 
             ]);
-    }
+    }           
 
     public static function table(Table $table): Table
     {
