@@ -62,7 +62,8 @@ class QuestionnaireResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\AnswersRelationManager::class,
+            RelationManagers\QuestionnaireLecturersRelationManager::class,
         ];
     }
 
