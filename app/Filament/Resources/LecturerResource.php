@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class LecturerResource extends Resource
-
 {
     protected static ?string $model = Lecturer::class;
     protected static ?string $navigationIcon = 'heroicon-s-rectangle-stack';
