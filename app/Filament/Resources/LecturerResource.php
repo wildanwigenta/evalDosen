@@ -30,7 +30,6 @@ class LecturerResource extends Resource
                 ->multiple()
                 ->label('Dosen Pengampu')
                 ->preload()
-
             ]);
     }           
 
