@@ -58,7 +58,7 @@ class LecturerResource extends Resource
     public static function getRelations(): array
     {
         return [
-            // Define any relation managers here if needed
+            //
         ];
     }
 
